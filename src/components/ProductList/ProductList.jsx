@@ -3,16 +3,17 @@ import './ProductList.css';
 import ProductItem from "../ProductItem/ProductItem";
 import {useTelegram} from "../../hooks/useTelegram";
 import {useCallback, useEffect} from "react";
+import Img from "../../img/101086949_0.jpg";
 
 const products = [
-    {id: '1', title: 'Джинсы', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '2', title: 'Куртка', price: 12000, description: 'Зеленого цвета, теплая'},
-    {id: '3', title: 'Джинсы 2', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '4', title: 'Куртка 8', price: 122, description: 'Зеленого цвета, теплая'},
-    {id: '5', title: 'Джинсы 3', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '6', title: 'Куртка 7', price: 600, description: 'Зеленого цвета, теплая'},
-    {id: '7', title: 'Джинсы 4', price: 5500, description: 'Синего цвета, прямые'},
-    {id: '8', title: 'Куртка 5', price: 12000, description: 'Зеленого цвета, теплая'},
+    { id: '1', title: '1984',"img": Img, price: 500, description: 'Роман Джорджа Оруэлла о дистопии' },
+    { id: '2', title: 'Мастер и Маргарита', price: 1200, description: 'Роман Михаила Булгакова о любви и добре' },
+    { id: '3', title: 'Убить пересмешника', price: 600, description: 'Роман Харпера Ли о расовых предрассудках' },
+    { id: '4', title: 'Гарри Поттер и философский камень', price: 800, description: 'Первая книга о приключениях Гарри Поттера' },
+    { id: '5', title: 'Великий Гэтсби', price: 700, description: 'Роман Ф. Скотта Фицджеральда о богатстве и любви' },
+    { id: '6', title: 'На дороге', price: 900, description: 'Роман Джека Керуака о свободе и поиске смысла' },
+    { id: '7', title: 'Преступление и наказание', price: 1100, description: 'Роман Федора Достоевского о моральных дилеммах' },
+    { id: '8', title: 'Моби Дик', price: 950, description: 'Роман Германа Мелвилла о поиске белого кита' },
 ]
 
 const getTotalPrice = (items = []) => {
