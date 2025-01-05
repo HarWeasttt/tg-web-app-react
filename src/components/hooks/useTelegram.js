@@ -2,7 +2,7 @@ const tg = window.Telegram.WebApp;
 
 export function useTelegram(){
     const onClose = () => {
-        tg.close(); // Закрываем веб-приложение Telegram
+        tg.close();
       };
 
     const onToggleButton = () => {
@@ -20,6 +20,4 @@ export function useTelegram(){
         user: tg.initDataUnsafe?.user,
 
     }
-    
-    
-    }
+}
