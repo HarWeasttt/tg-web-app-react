@@ -27,22 +27,27 @@ const Form = () => {
             street,
             subject,
             responses
-        }
+        };
+        console.log('Отправляемые данные:', data); // Логируем данные перед отправкой
         tg.sendData(JSON.stringify(data));
     }, [country, street, subject, responses]);
 
     useEffect(() => {
-        tg.onEvent('mainButtonClicked', onSendData);
+        tg.onEvent('mainButtonClicked', () => {
+            if (quizCompleted) {
+                onSendData(); // Отправляем данные только если квиз завершен
+            }
+        });
         return () => {
             tg.offEvent('mainButtonClicked', onSendData);
-        }
-    }, [onSendData]);
+        };
+    }, [onSendData, quizCompleted]);
 
     useEffect(() => {
         tg.MainButton.setParams({
-            text: 'Отправить данные'
+            text: quizCompleted ? 'Отправить данные' : 'Следующий вопрос'
         });
-    }, []);
+    }, [quizCompleted]);
 
     useEffect(() => {
         if (!street || !country) {
@@ -69,12 +74,14 @@ const Form = () => {
     };
 
     const handleNextQuestion = () => {
-        setResponses([...responses, selectedOption]);
-        setSelectedOption('');
-        if (currentQuestion < questions.length - 1) {
-            setCurrentQuestion(currentQuestion + 1);
-        } else {
-            setQuizCompleted(true);
+        if (selectedOption) {
+            setResponses([...responses, selectedOption]);
+            setSelectedOption('');
+            if (currentQuestion < questions.length - 1) {
+                setCurrentQuestion(currentQuestion + 1);
+            } else {
+                setQuizCompleted(true);
+            }
         }
     };
 
