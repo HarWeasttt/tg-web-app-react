@@ -18,7 +18,7 @@ const Header = () => {
             <span className={'username'}>
                 {user?.username}
             </span>
-            <Button onClick={handleNavigateToForm}>Перейти к форме</Button> {/* Кнопка для перехода */}
+            <Button onClick={handleNavigateToForm}>Перейти к форме</Button>
         </div>
     );
 };
