@@ -1,15 +1,16 @@
 import React from 'react';
 import { useTelegram } from "../../hooks/useTelegram";
-import { useNavigate } from 'react-router-dom'; // Импортируем useNavigate
+import { useNavigate, useLocation } from 'react-router-dom'; // Импортируем useLocation
 import './Header.css';
 import Button from '../button/Button';
 
 const Header = () => {
     const { user, onClose } = useTelegram();
-    const navigate = useNavigate(); // Инициализируем navigate
+    const navigate = useNavigate();
+    const location = useLocation(); // Получаем текущий путь
 
-    const handleNavigateToForm = () => {
-        navigate('/Product'); // Переход на страницу формы
+    const handleNavigateToProduct = () => {
+        navigate('/Product');
     };
 
     return (
@@ -18,7 +19,10 @@ const Header = () => {
             <span className={'username'}>
                 {user?.username}
             </span>
-            <Button onClick={handleNavigateToForm}>Перейти к Магазину</Button>
+            <Button onClick={handleNavigateToProduct}>Перейти к Магазину</Button>
+            {location.pathname === '/Product' && ( // Проверяем текущий путь
+                <Button onClick={() => navigate('/')}>Вернуться на главную</Button> // Кнопка возврата
+            )}
         </div>
     );
 };
