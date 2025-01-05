@@ -3,7 +3,6 @@ import './ProductList.css';
 import ProductItem from "../ProductItem/ProductItem";
 import {useTelegram} from "../../hooks/useTelegram";
 import {useCallback, useEffect} from "react";
-import Img from "../../img/101086949_0.jpg";
 
 const products = [
     { id: '1', title: '1984',"img": Img, price: 500, description: 'Роман Джорджа Оруэлла о дистопии' },
