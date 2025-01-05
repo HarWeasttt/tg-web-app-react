@@ -3,9 +3,10 @@ import './ProductList.css';
 import ProductItem from "../ProductItem/ProductItem";
 import {useTelegram} from "../../hooks/useTelegram";
 import {useCallback, useEffect} from "react";
+import Img from "../../img/101086949_0.jpg";
 
 const products = [
-    { id: '1', title: '1984',"img": Img, price: 500, description: 'Роман Джорджа Оруэлла о дистопии' },
+    { id: '1', title: '1984', price: 500, description: 'Роман Джорджа Оруэлла о дистопии' },
     { id: '2', title: 'Мастер и Маргарита', price: 1200, description: 'Роман Михаила Булгакова о любви и добре' },
     { id: '3', title: 'Убить пересмешника', price: 600, description: 'Роман Харпера Ли о расовых предрассудках' },
     { id: '4', title: 'Гарри Поттер и философский камень', price: 800, description: 'Первая книга о приключениях Гарри Поттера' },
