@@ -9,7 +9,7 @@ const Header = () => {
     const navigate = useNavigate(); // Инициализируем navigate
 
     const handleNavigateToForm = () => {
-        navigate('/form'); // Переход на страницу формы
+        navigate('/Product'); // Переход на страницу формы
     };
 
     return (
@@ -18,7 +18,7 @@ const Header = () => {
             <span className={'username'}>
                 {user?.username}
             </span>
-            <Button onClick={handleNavigateToForm}>Перейти к форме</Button>
+            <Button onClick={handleNavigateToForm}>Перейти к Магазину</Button>
         </div>
     );
 };
