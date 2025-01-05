@@ -1,17 +1,21 @@
 import React, { useEffect } from 'react';
 import './App.css';
+import { useTelegram } from './components/hooks/useTelegram';
+import Header from "./components/Header/Header"
 
-const tg = window.Telegram.WebApp;
 
 function App() {
+
+      const {onToggleButton, tg} = useTelegram;
   useEffect(() => {
-    tg.ready(); // Уведомляем Telegram, что приложение готово
-  }, []); // Пустой массив зависимостей для выполнения один раз при монтировании
+    tg.ready();
+  }, []); 
 
 
   return (
     <div className="App">
-      so cool 
+      <Header />
+      <button onClick={onToggleButton}>Toggle</button>
     </div>
   );
 }
