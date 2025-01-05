@@ -17,8 +17,8 @@ function App() {
         <div className="App">
             <Header />
             <Routes>
-            <Route index element={<Form />}/>
-                <Route path='product' element={<ProductList />}/>
+                <Route index element={<ProductList />}/>
+                <Route path={'/form'} element={<Form />}/>
             </Routes>
         </div>
     );
