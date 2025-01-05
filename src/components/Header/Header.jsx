@@ -19,9 +19,13 @@ const Header = () => {
             <span className={'username'}>
                 {user?.username}
             </span>
-            <Button onClick={handleNavigateToProduct}>Перейти к Магазину</Button>
-            {location.pathname === '/Product' && ( // Проверяем текущий путь
-                <Button onClick={() => navigate('/')}>Вернуться на главную</Button> // Кнопка возврата
+            
+            {location.pathname === '/' && ( 
+                <Button onClick={handleNavigateToProduct}>Перейти к Магазину</Button>
+            )}
+            
+            {location.pathname === '/Product' && ( 
+                <Button onClick={() => navigate('/')}>Вернуться на главную</Button>
             )}
         </div>
     );
